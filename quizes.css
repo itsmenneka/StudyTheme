@@ -1,0 +1,234 @@
+/* Sticky Timer Bar Styles */
+.sticky-timer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+  
+  .sticky-timer #timer-display {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .sticky-timer .timer-controls button {
+    background-color: #575757;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .sticky-timer .timer-controls button:hover {
+    background-color: #777;
+  }
+  /* Flashcard Deck Styles */
+.flashcard-decks {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  
+  .deck {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .deck:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .deck h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .deck p {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  
+  .deck button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .deck button:hover {
+    background-color: #555;
+  }
+  /* Flashcard Styles */
+.flashcard-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .flashcard {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .flashcard p {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .flashcard button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .flashcard button:hover {
+    background-color: #555;
+  }
+  /* Custom Decks Section */
+.custom-decks {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.custom-decks h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.custom-decks form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.custom-decks input[type="text"] {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.custom-decks button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.custom-decks button:hover {
+  background-color: #555;
+}
+
+.custom-decks #decks-list {
+  margin-top: 20px;
+}
+
+.custom-decks #decks-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.custom-decks #decks-list li {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* Custom Flashcards Section */
+.custom-flashcards {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.custom-flashcards h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.custom-flashcards form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.custom-flashcards select,
+.custom-flashcards input[type="text"] {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.custom-flashcards button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.custom-flashcards button:hover {
+  background-color: #555;
+}
+
+.custom-flashcards #custom-flashcards-list {
+  margin-top: 20px;
+}
+
+.custom-flashcards #custom-flashcards-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.custom-flashcards #custom-flashcards-list li {
+  font-size: 18px;
+  margin-bottom: 10px;
+}

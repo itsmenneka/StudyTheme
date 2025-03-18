@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flashcards - StudyTheme</title>
+  <link rel="stylesheet" href="quizes.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="quizes.html">Quizzes</a></li>
+    </ul>
+  </nav>
+
+  <!-- Flashcard Container -->
+  <div class="flashcard-container">
+    <h1 id="deck-title">Flashcards</h1>
+    <div id="flashcards">
+      <div class="flashcard">
+        <p id="question"><strong>Question:</strong></p>
+        <button id="show-answer-btn">Show Answer</button>
+        <p id="answer" style="display: none;"><strong>Answer:</strong></p>
+      </div>
+    </div>
+    <button id="next-card">Next Card</button>
+  </div>
+
+
+  <!-- Sticky Timer Bar -->
+  <div class="sticky-timer">
+    <div id="timer-display">25:00</div>
+    <div class="timer-controls">
+      <button id="start-btn">Start</button>
+      <button id="pause-btn">Pause</button>
+      <button id="reset-btn">Reset</button>
+    </div>
+  </div>
+
+  <script src="flashcard.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

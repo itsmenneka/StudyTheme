@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Deck - StudyTheme</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Create a Custom Deck</h1>
+  <form id="deck-form">
+    <label for="deck-name">Deck Name:</label>
+    <input type="text" id="deck-name" required>
+    <h2>Cards</h2>
+    <div id="cards-container">
+      <div class="card">
+        <input type="text" placeholder="Question" class="question" required>
+        <input type="text" placeholder="Answer" class="answer" required>
+      </div>
+    </div>
+    <button type="button" id="add-card-btn">Add Card</button>
+    <button type="submit">Save Deck</button>
+  </form>
+
+  <script src="create-deck.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quizzes - StudyTheme</title>
+  <link rel="stylesheet" href="quizes.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="quizes.html">Quizzes</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="content">
+    <h1>Quizzes</h1>
+    <p>Test your knowledge with these quizzes!</p>
+
+    <!-- Flashcard Decks -->
+    <div class="flashcard-decks">
+      <div class="deck">
+          <h2>Create Your Own Deck</h2>
+          <p>Build a custom flashcard deck!</p>
+          <button onclick="location.href='create-deck.html'">Create Deck</button>
+      </div>
+      <div class="deck">
+          <h2>Math</h2>
+          <p>Practice your math skills!</p>
+          <button onclick="location.href='flashcard.html?deck=Math'">Open Deck</button>
+          <button onclick="location.href='edit-deck.html?deck=Math'">Edit Deck</button>
+      </div>
+      <div class="deck">
+          <h2>Science</h2>
+          <p>Learn about science topics!</p>
+          <button onclick="location.href='flashcard.html?deck=Science'">Open Deck</button>
+          <button onclick="location.href='edit-deck.html?deck=Science'">Edit Deck</button>
+      </div>
+      <div class="deck">
+          <h2>History</h2>
+          <p>Review historical events!</p>
+          <button onclick="location.href='flashcard.html?deck=History'">Open Deck</button>
+          <button onclick="location.href='edit-deck.html?deck=History'">Edit Deck</button>
+      </div>
+  </div>
+  </div>
+
+  <!-- Sticky Timer Bar -->
+  <div class="sticky-timer">
+    <div id="timer-display">25:00</div>
+    <div class="timer-controls">
+      <button id="start-btn">Start</button>
+      <button id="pause-btn">Pause</button>
+      <button id="reset-btn">Reset</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="quizes.js"></script>
+</body>
+</html>

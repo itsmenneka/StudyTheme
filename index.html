@@ -2,19 +2,29 @@
 <html>
 <head>
   <title>StudyTheme</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css\style.css">
 </head>
 <body>
-
   <!-- Navigation Bar -->
   <nav class="navbar">
+    <div class="app-name">
+      <img src="https://th.bing.com/th?id=OIP.UvI8fDqx_u8rYtLPh9c6iQHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="App Icon"></img>
+      <p>StudyTheme</p>
+      <button class="navbar-toggle" id="navbar-toggle">></button> <!-- Toggle Button -->
+    </div>
+    <div class="welcome">
+      <img src="https://th.bing.com/th/id/OIP.hGSCbXlcOjL_9mmzerqAbQHaHa?rs=1&pid=ImgDetMain" alt="Profile Picture"></img>
+      <h3>Hi, Slickback <span class="wave">&#128075;</span></h3>
+      <hr class="blue-line">
+    </div>
     <ul>
-      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html" class="selected">Home</a></li>
       <li><a href="quizes.html">Quizes</a></li>
+      <li><a href="about.html">About/QnA</a></li>
     </ul>
   </nav>
-
-  <!-- Timer Container -->
+  
+  <!-- Pomodoro Timer Container -->
   <div class="timer-container">
     <div id="timer-display">25:00</div>
     <div class="timer-controls">

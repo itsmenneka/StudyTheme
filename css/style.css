@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Pixelify+Sans:wght@400..700&display=swap');
+
+:root {
+  --primary-color: #3D52D5;
+  --secondary-color: #0fa3b1;
+  --accent-color: #ff4a1c;
+  --dark-color: #0D1321;
+  --background-color: #fcf9f7;
+  font-family: pixelify sans, sans-serif;
+  background-color: var(--background-color);
+}
+
+/* Ensure the main content has enough space above the sticky timer */
+.content {
+  margin-bottom: 120px; /* Adjust this value to create space above the sticky timer */
+}
+
+/* Add padding to the body to ensure no overlap with the sticky timer */
+body {
+  padding-bottom: 70px; /* Match the height of the sticky timer */
+}
+.timer-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  #timer-display {
+    font-size: 4em;
+    margin-bottom: 20px;
+  }
+  
+  .timer-controls button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 1em;
+  }
+  
+  .timer-settings {
+    margin-top: 20px;
+  }
+  
+  .timer-settings label,
+  .timer-settings input {
+    display: block;
+    margin: 5px auto;
+  }
+/* Navigation Bar Styles */
+.navbar {
+  position: fixed; /* Make the navbar sticky */
+  top: 0; /* Stick to the top of the viewport */
+  left: 0; /* Align to the left of the viewport */
+  height: 100%; /* Full height of the viewport */
+  width: 200px; /* Set a fixed width for the navbar */
+  background-color: var(--background-color); /* Background color */
+  box-shadow: 0 0 50px rgba(44, 65, 253, 0.25); /* Add a subtle shadow */
+  z-index: 1000; /* Ensure the navbar is on top of other content */
+  overflow-x: visible; /* Hide horizontal overflow */
+  padding-top: 20px; /* Add padding at the top */
+  display: flex;
+  flex-direction: column; /* Make it vertical */
+  align-items: center; /* Center the content horizontally */
+  gap: 30px;
+  color: var(--primary-color);
+  transition: all 0.3s ease; /* Smooth transition for collapsing */
+}
+
+.navbar .navbar-links {
+  display: block; /* Show links by default */
+}
+
+.navbar .navbar-toggle {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin-top: 10px;
+  position: absolute;
+  top: 10px;
+  left: 180px; /* Default position when navbar is expanded */
+  transition: left 0.3s ease; /* Smooth transition for position change */
+  border-radius: 5px;
+}
+
+.navbar.expanded {
+  width: 60px; /* Collapsed width */
+}
+
+.navbar ul {
+  opacity: 1; /* Fully visible by default */
+  transition: opacity 0.3s ease; /* Smooth transition for hiding */
+}
+
+.navbar.expanded .navbar-toggle {
+  left: 75px; /* Move the button closer when navbar is collapsed */
+  animation: toggle-bounce 1s ease-in-out infinite; /* Add bounce animation */
+}
+@keyframes toggle-bounce {
+  0% {
+    transform: translateX(0); /* Move slightly left */
+  }
+  50% {
+    transform: translateX(5px); /* Move slightly right */
+  }
+  100% {
+    transform: translateX(0); /* Return to original position */
+  }
+}
+
+.navbar.expanded ul {
+  opacity: 0; /* Hide the menu items when collapsed */
+  pointer-events: none; /* Disable interaction with hidden items */
+}
+
+.navbar .app-name p {
+  display: block; /* Show the app name by default */
+  transition: opacity 0.3s ease; /* Smooth transition for hiding */
+}
+
+.navbar.expanded .app-name p {
+  opacity: 0; /* Hide the app name when collapsed */
+  pointer-events: none; /* Disable interaction with hidden text */
+}
+
+.navbar .welcome {
+  display: flex; /* Default display */
+  transition: opacity 0.3s ease; /* Smooth transition for hiding */
+}
+
+.navbar.expanded .welcome {
+  opacity: 0; /* Hide the welcome section when collapsed */
+  pointer-events: none; /* Disable interaction with hidden content */
+}
+
+.navbar .app-name {
+  display: flex; /* Use flexbox for horizontal alignment */
+  justify-content: flex-start;
+  align-items: center; /* Center the image and text vertically */
+  gap: 10px; /* Add spacing between the image and text */
+  font-size: 12px; /* Set the desired font size */
+  width: 100%; /* Ensure it spans the full width of the navbar */
+  padding-left: 25px; /* Add padding around the text */
+}
+
+/* Waving Animation */
+.wave {
+  display: inline-block; /* Ensure the emoji is treated as a block for animation */
+  animation: wave-animation 1.5s infinite; /* Apply the animation */
+  transform-origin: 70% 70%; /* Set the origin point for the rotation */
+}
+
+@keyframes wave-animation {
+  0% { transform: rotate(-15deg); } /* Start at the default position */
+  50% { transform: rotate(15deg); } /* Rotate to the other side */
+  100% { transform: rotate(-15deg); } /* Ensure it ends at the default position */
+}
+
+.navbar .app-name img {
+  width: 20px; /* Set the desired width for the image */
+  height: 20px; /* Set the desired height for the image */
+  object-fit: cover; /* Ensure the image fits properly */
+}
+
+/* Welcome Class Styles */
+.navbar .welcome {
+  display: flex; /* Use flexbox for alignment */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  flex-direction: column; /* Stack content vertically if needed */
+  width: 100%; /* Ensure it spans the full width of the navbar */
+}
+
+.navbar .welcome img {
+  width: 80px; /* Set the desired width */
+  height: 80px; /* Set the desired height */
+  border-radius: 50%; /* Make the image circular */
+  object-fit: cover; /* Ensure the image fits within the circle */
+  margin-bottom: 5px; /* Add spacing below the image */
+}
+
+/* Navigation Bar List Styles */
+.navbar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%; /* Full width of the navbar */
+}
+
+.navbar ul li {
+  width: 100%; /* Ensure each list item spans the full width */
+}
+
+.navbar ul li .selected {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  width: 110%; /* Extend the background color */
+  margin-left: -30px;
+  border-radius: 30px; /* Add rounded corners */
+  text-align: center; /* Center the text */
+}
+
+.navbar ul li a {
+  display: block; /* Make the links block-level elements */
+  text-decoration: none;
+  color: var(--primary-color);
+  font-size: 18px;
+  padding: 10px 16px;
+  text-align: left; /* Center the text */
+  transition: background-color 0.3s;
+}
+
+.navbar ul li a:hover {
+  background-color: #7070701a; /* Change background color on hover */
+  border-radius: 4px;
+  color: var(--secondary-color);
+}
+
+.navbar ul li a.selected:hover {
+  background-color: var(--secondary-color); /* Change background color on hover */
+  border-radius: 30px;
+  width: 112%;
+  color: var(--background-color);
+}
+
+.blue-line {
+  border: none; /* Remove the default border */
+  border-bottom: 2px solid var(--accent-color); /* Add a blue line */
+  width: 100%; /* Adjust the width of the line */
+  margin: 10px auto; /* Center the line and add spacing */
+}
+
+/* Adjust the main content to account for the sticky navbar */
+.content {
+  margin-left: 220px; /* Add space to the left for the navbar */
+  padding: 20px; /* Add padding for better readability */
+}
+
+  .flashcard-decks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }

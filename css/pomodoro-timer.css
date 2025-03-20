@@ -1,0 +1,177 @@
+@import url(style.css);
+
+.timer-container {
+    text-align: center;
+    margin-top: 20px; /* Reduce top margin */
+    background-color: var(--background-color);
+    box-shadow: 0 0 20px rgba(44, 65, 253, 0.15); /* Reduce shadow intensity */
+    border-radius: 20px; /* Smaller border radius */
+    width: fit-content;
+    padding: 10px; /* Reduce padding */
+    margin: 10px auto; /* Center and reduce margin */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Reduce spacing between elements */
+    transition: all 0.3s ease;
+}
+
+.timer-container:hover {
+    box-shadow: none; /* Remove shadow on hover */
+}
+
+#timer-display {
+    font-size: 2em; /* Reduce font size */
+    margin-bottom: 10px; /* Reduce bottom margin */
+    color: var(--primary-color);
+}
+
+.timer-controls button {
+    padding: 8px 15px; /* Reduce button padding */
+    margin: 0 5px; /* Reduce spacing between buttons */
+    font-size: 0.9em; /* Slightly smaller font size */
+    font-family: 'Pixelify Sans', sans-serif; /* Keep the font consistent */
+    border: none; /* Remove default borders */
+    border-radius: 6px; /* Smaller rounded corners */
+    background-color: var(--primary-color); /* Use primary color for the background */
+    color: white; /* White text for contrast */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Add smooth transitions */
+}
+
+.timer-controls button:hover {
+    background-color: var(--accent-color); /* Change background color on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+.timer-controls button:active {
+    transform: scale(0.95); /* Slightly shrink the button when clicked */
+    background-color: var(--secondary-color); /* Optional: Change color on click */
+}
+
+.timer-settings {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the contents horizontally */
+    gap: 10px; /* Reduce spacing between elements */
+    margin: 20px auto; /* Center the entire section horizontally */
+    padding: 15px; /* Reduce padding */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 6px; /* Smaller border radius */
+    box-shadow: 0 2px 4px rgba(44, 65, 253, 0.15); /* Subtle shadow */
+    width: fit-content; /* Adjust width to fit the content */
+}
+
+.timer-settings label {
+    font-size: 12px; /* Smaller font size */
+    font-weight: bold;
+    color: var(--primary-color);
+    text-align: center; /* Center the text */
+}
+
+.timer-settings input,
+.timer-settings select {
+    width: 100%; /* Ensure inputs take full width of the container */
+    max-width: 150px; /* Reduce input width */
+    padding: 6px; /* Reduce padding */
+    font-size: 12px; /* Smaller font size */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center; /* Center the text inside inputs */
+    font-family: pixelify sans, sans-serif;
+}
+.timer-settings select {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+.timer-settings input{
+    color: var(--accent-color);
+}
+
+.timer-settings input:focus,
+.timer-settings select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.sprite-container {
+    width: 150px; /* Scaled-down width of a single frame */
+    height: 165px; /* Scaled-down height of a single frame */
+    overflow: hidden; /* Hide the overflowing frames */
+    position: relative;
+    margin: 0 auto; /* Center the sprite container */
+    margin-bottom: -10px; /* Remove any conflicting margins */
+}
+
+.gracie-sprite {
+    width: 2400px; /* Total width of the sprite sheet remains unchanged */
+    height: 660px; /* Height of the sprite sheet remains unchanged */
+    background: url('../Imgs/GracieSpriteSheetAnim.png') no-repeat;
+    background-size: 600px 165px; /* Scale down the sprite sheet to match the container */
+    animation: gracie-animation 2s steps(4) infinite; /* 2s for 4 frames at 2 FPS */
+}
+
+@keyframes gracie-animation {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -600px 0; /* Adjust for the new scaled-down width */
+    }
+}
+
+.flashcard-decks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+@keyframes shake-rotate {
+    0% {
+        transform: rotate(0deg) translateX(0);
+    }
+    20% {
+        transform: rotate(-10deg) translateX(-5px);
+    }
+    40% {
+        transform: rotate(10deg) translateX(5px);
+    }
+    60% {
+        transform: rotate(-10deg) translateX(-5px);
+    }
+    80% {
+        transform: rotate(10deg) translateX(5px);
+    }
+    100% {
+        transform: rotate(0deg) translateX(0);
+    }
+}
+
+#stop-btn {
+    padding: 8px 15px; /* Adjust padding */
+    font-size: 0.9em; /* Adjust font size */
+    font-family: 'Pixelify Sans', sans-serif; /* Keep consistent font */
+    border: none; /* Remove default borders */
+    border-radius: 6px; /* Rounded corners */
+    background-color: #ff1629; /* Red background */
+    color: white; /* White text for contrast */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth background transition */
+    animation: shake-rotate 0.5s ease-in-out infinite; /* Apply the shake-rotate animation */
+    font-size: xx-large;
+}
+
+#stop-btn:hover {
+    background-color: #e60000; /* Darker red on hover */
+    font-size:2.5rem ;
+}
+
+#stop-btn:active {
+    transform: scale(0.95); /* Slightly shrink on click */
+    background-color: #8b0606; /* Even darker red on click */
+    animation: none; /* Stop animation when clicked */
+}

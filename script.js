@@ -87,6 +87,8 @@ function handleTimerEnd() {
 
     // Switch between work and break mode
     switchMode();
+    isRunning = false;
+    toggleTimer();
 
     // Restore buttons
     toggleTimerBtn.style.display = "inline-block";
@@ -97,19 +99,22 @@ function handleTimerEnd() {
 }
 
 // Switch Mode
+// Switch Mode
 function switchMode() {
   if (modeSelect.value === "Work") {
-    modeSelect.value = "Break";
-    remainingTime = breakTime;
-    isRunning = false;
-  } else {
-    modeSelect.value = "Work";
-    remainingTime = workTime;
-    isRunning = false;
+    modeSelect.value = "Break"; // Switch to Break mode
+    remainingTime = breakTime; // Set remaining time to break time
+  } else if (modeSelect.value === "Break") {
+    modeSelect.value = "Work"; // Switch to Work mode
+    remainingTime = workTime; // Set remaining time to work time
   }
-  updateTimerDisplay();
-  toggleTimer();
+  updateTimerDisplay(); // Update the timer display
 }
+
+// Event Listeners
+modeSelect.addEventListener("change", () => {
+  switchMode(); // Call switchMode when the user changes the mode
+});
 
 // Save settings to localStorage
 function saveSettings() {

@@ -1,0 +1,31 @@
+/* Sticky Bar for Pomodoro Timer */
+.timer-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+  
+  .timer-container button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .timer-container button:hover {
+    background-color: #777;
+  }
+
+  .timer-settings {
+    display: none;
+  }

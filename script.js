@@ -7,13 +7,19 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleButton.classList.toggle("collapsed");
   });
 
-  // Load saved settings on page load
+  // Load saved settings and timer state on page load
   loadSettings();
+  loadTimerState();
   updateTimerDisplay();
+
+  if (isRunning) {
+    isRunning = false;
+    toggleTimer(); // Resume timer if it was running
+  }
 });
 
 let timerInterval;
-let isRunning = false;
+let isRunning = localStorage.getItem("isRunning") === "true";
 
 // DOM Elements
 const timerDisplay = document.getElementById("timer-display");
@@ -40,6 +46,42 @@ function updateTimerDisplay() {
     .padStart(2, "0")}`;
 }
 
+// Save Timer State to localStorage
+function saveTimerState() {
+  localStorage.setItem("remainingTime", remainingTime);
+  localStorage.setItem("isRunning", isRunning);
+  localStorage.setItem("currentMode", modeSelect.value);
+  localStorage.setItem("lastUpdated", Date.now()); // Save the current timestamp
+}
+
+// Load Timer State from localStorage
+function loadTimerState() {
+  const savedRemainingTime = localStorage.getItem("remainingTime");
+  const savedIsRunning = localStorage.getItem("isRunning");
+  const savedMode = localStorage.getItem("currentMode");
+  const lastUpdated = localStorage.getItem("lastUpdated");
+
+  if (savedRemainingTime !== null) {
+    remainingTime = parseInt(savedRemainingTime, 10);
+
+    // Calculate elapsed time if the timer was running
+    if (lastUpdated && savedIsRunning === "true") {
+      const elapsedTime = Math.floor(
+        (Date.now() - parseInt(lastUpdated, 10)) / 1000
+      );
+      remainingTime = Math.max(remainingTime - elapsedTime, 0);
+    }
+  }
+
+  if (savedIsRunning !== null) {
+    isRunning = savedIsRunning === "true";
+  }
+
+  if (savedMode) {
+    modeSelect.value = savedMode;
+  }
+}
+
 // Start/Stop Timer
 function toggleTimer() {
   if (isRunning) {
@@ -50,6 +92,7 @@ function toggleTimer() {
       if (remainingTime > 0) {
         remainingTime--;
         updateTimerDisplay();
+        saveTimerState(); // Save state on every tick
       } else {
         timerEndSound.play();
         clearInterval(timerInterval);
@@ -59,6 +102,7 @@ function toggleTimer() {
     toggleTimerBtn.textContent = "Pause";
   }
   isRunning = !isRunning;
+  saveTimerState(); // Save state when toggling
 }
 
 // Reset Timer
@@ -68,6 +112,7 @@ function resetTimer() {
   remainingTime = modeSelect.value === "Work" ? workTime : breakTime;
   updateTimerDisplay();
   toggleTimerBtn.textContent = "Start";
+  saveTimerState(); // Save state after reset
 }
 
 // Handle Timer End
@@ -99,7 +144,6 @@ function handleTimerEnd() {
 }
 
 // Switch Mode
-// Switch Mode
 function switchMode() {
   if (modeSelect.value === "Work") {
     modeSelect.value = "Break"; // Switch to Break mode
@@ -109,12 +153,22 @@ function switchMode() {
     remainingTime = workTime; // Set remaining time to work time
   }
   updateTimerDisplay(); // Update the timer display
+  saveTimerState(); // Save the mode change
 }
 
-// Event Listeners
-modeSelect.addEventListener("change", () => {
-  switchMode(); // Call switchMode when the user changes the mode
-});
+function modeChanged() {
+  if (modeSelect.value === "Work") {
+    modeSelect.value = "Work"; // Switch to Break mode
+    remainingTime = workTime; // Set remaining time to break time
+    isRunning = false;
+  } else if (modeSelect.value === "Break") {
+    modeSelect.value = "Break"; // Switch to Work mode
+    remainingTime = breakTime; // Set remaining time to work time
+    isRunning = false;
+  }
+  updateTimerDisplay(); // Update the timer display
+  saveTimerState(); // Save the mode change
+}
 
 // Save settings to localStorage
 function saveSettings() {
@@ -150,6 +204,7 @@ function updateSettings() {
 
     // Save the updated settings
     saveSettings();
+    saveTimerState(); // Save the updated remaining
   }
 }
 
@@ -158,7 +213,7 @@ toggleTimerBtn.addEventListener("click", toggleTimer);
 resetBtn.addEventListener("click", resetTimer);
 workTimeInput.addEventListener("change", updateSettings);
 breakTimeInput.addEventListener("change", updateSettings);
-modeSelect.addEventListener("change", switchMode);
+modeSelect.addEventListener("change", modeChanged);
 
 // Initialize Display
 updateTimerDisplay();

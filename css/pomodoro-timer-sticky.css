@@ -1,31 +1,81 @@
+@import url(style.css);
+
+body {
+  margin-bottom: 10px;
+  padding-bottom: 80px; /* Prevent content overlap with the timer */
+}
+
 /* Sticky Bar for Pomodoro Timer */
 .timer-container {
     position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    bottom: 20px; /* Add spacing from the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%; /* Reduce width */
+    max-width: 500px; /* Adjust max width */
+    background: var(--primary-color);
+    color: var(--background-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 -4px 50px rgba(44, 65, 253, 0.25);
     z-index: 1000;
-  }
-  
-  .timer-container button {
-    margin: 0 5px;
-    padding: 5px 10px;
-    background-color: #555;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  
-  .timer-container button:hover {
-    background-color: #777;
-  }
+    font-size: 14px; /* Reduce font size */
+    border-radius: 30px; /* Adjust border radius */
+    padding: 10px 20px; /* Adjust padding */
+    animation: slide-up 0.5s ease-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-  .timer-settings {
+.timer-container:hover {
+    transform: translateX(-50%) translateY(-5px); /* Slight lift on hover */
+    box-shadow: none; /* Enhanced shadow */
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateX(-50%) translateY(100%);
+    }
+    to {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+#timer-display {
+    font-size: 1rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(44, 65, 253, 0.25);
+}
+
+.timer-controls {
+    display: flex;
+    margin-right: 20px; /* Adjust margin */
+    gap: 10px; /* Reduce gap */
+}
+
+.timer-controls button {
+    font-family: pixelify sans, sans-serif;
+    padding: 8px 15px; /* Adjust padding */
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 20px; /* Adjust border radius */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(44, 65, 253, 0.25);
+}
+
+.timer-controls button:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05); /* Reduce hover scale */
+    box-shadow: 0 6px 8px rgba(44, 65, 253, 0.25);
+}
+
+.timer-settings {
     display: none;
-  }
+}
+
+.timer-container button:focus {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+}

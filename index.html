@@ -17,13 +17,14 @@
         </span></button> <!-- Toggle Button -->
     </div>
     <div class="welcome">
-      <img src="https://th.bing.com/th/id/OIP.hGSCbXlcOjL_9mmzerqAbQHaHa?rs=1&pid=ImgDetMain" alt="Profile Picture"></img>
-      <h3>Hi, Slickback <span class="wave">&#128075;</span></h3>
+      <img id="userProfilePicture" src="https://th.bing.com/th/id/OIP.hGSCbXlcOjL_9mmzerqAbQHaHa?rs=1&pid=ImgDetMain" alt="Profile Picture"></img>
+      <h3>Hi, <span id="userName">[Name]</span> <span class="wave">&#128075;</span></h3>
       <hr class="blue-line">
     </div>
     <ul>
       <li><a href="index.html" class="selected">Home</a></li>
       <li><a href="quizes.html">Quizes</a></li>
+      <li><a href="name.html">Profile</a></li>
       <li><a href="about.html">About/QnA</a></li>
     </ul>
   </nav>
@@ -51,5 +52,14 @@
     </div>
   </div>
   <script src="script.js"></script>
+  <script src="UserInfo.js"></script>
+  <script>
+    // Dynamically update user data in the navbar
+    const userName = localStorage.getItem("username") || "Guest";
+    const userProfilePicture = localStorage.getItem("profilePicture") || "https://th.bing.com/th/id/OIP.hGSCbXlcOjL_9mmzerqAbQHaHa?rs=1&pid=ImgDetMain";
+
+    document.getElementById("userName").textContent = userName;
+    document.getElementById("userProfilePicture").src = userProfilePicture;
+  </script>
 </body>
 </html>

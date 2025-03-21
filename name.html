@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome!!</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/signin.css">
+</head>
+<body>
+    <div class="content">
+        <h1>Welcome!!</h1>
+        <form id="signupForm" class="form-container">
+            <div class="profile-picture-container">
+                <img id="profilePicturePreview" src="https://th.bing.com/th/id/OIP.hGSCbXlcOjL_9mmzerqAbQHaHa?rs=1&pid=ImgDetMain" alt="Profile Picture Preview" class="profile-picture">
+                <input type="file" id="profilePicture" name="profilePicture" accept="image/*" class="hidden-file-input">
+                <p style="color: var(--accent-color);">Choose pfp?</p>
+            </div>
+            <br>
+            <label for="username">Nickname:</label>
+            <input type="text" id="username" name="username" required>
+            <br><br>
+            <button type="submit" class="btn-primary">Confirm</button>
+        </form>
+    </div>
+    <script src="UserInfo.js"></script>
+</body>
+</html>

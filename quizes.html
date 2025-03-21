@@ -21,12 +21,13 @@
     </div>
     <div class="welcome">
       <img src="https://th.bing.com/th/id/OIP.hGSCbXlcOjL_9mmzerqAbQHaHa?rs=1&pid=ImgDetMain" alt="Profile Picture"></img>
-      <h3>Hi, Slickback <span class="wave">&#128075;</span></h3>
+      <h3>Hi, [Name] <span class="wave">&#128075;</span></h3>
       <hr class="blue-line">
     </div>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="quizes.html" class="selected">Quizes</a></li>
+      <li><a href="name.html">Profile</a></li>
       <li><a href="about.html">About/QnA</a></li>
     </ul>
   </nav>
@@ -66,5 +67,20 @@
 
   <script src="script.js"></script>
   <script src="quizes.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const savedUsername = localStorage.getItem("username");
+      const savedProfilePicture = localStorage.getItem("profilePicture");
+      const welcomeSection = document.querySelector(".welcome");
+
+      if (savedUsername) {
+        welcomeSection.querySelector("h3").innerHTML = `Hi, ${savedUsername} <span class="wave">&#128075;</span>`;
+      }
+
+      if (savedProfilePicture) {
+        welcomeSection.querySelector("img").src = savedProfilePicture;
+      }
+    });
+  </script>
 </body>
 </html>

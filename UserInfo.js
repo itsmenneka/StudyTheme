@@ -45,8 +45,8 @@ document
         alert("Signed In!");
         document.getElementById("signupForm").reset(); // Clear the form
 
-        // Redirect to index.html after signup
-        window.location.href = "index.html";
+        // Redirect to home.html after signup
+        window.location.href = "home.html";
       }
     } else {
       alert("Please fill in all fields.");

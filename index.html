@@ -1,65 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>StudyTheme</title>
-  <link rel="stylesheet" href="css\navbar.css">
-  <link rel="stylesheet" href="css\pomodoro-timer.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome!!</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/signin.css">
 </head>
 <body>
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <div class="app-name">
-      <img src="https://th.bing.com/th?id=OIP.UvI8fDqx_u8rYtLPh9c6iQHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="App Icon"></img>
-      <p>StudyTheme</p>
-      <button class="navbar-toggle" id="navbar-toggle"><span class="material-symbols-outlined">
-        menu
-        </span></button> <!-- Toggle Button -->
+    <div class="content">
+        <h1>Welcome!!</h1>
+        <form id="signupForm" class="form-container">
+            <div class="profile-picture-container">
+                <img id="profilePicturePreview" src="https://th.bing.com/th/id/OIP.hGSCbXlcOjL_9mmzerqAbQHaHa?rs=1&pid=ImgDetMain" alt="Profile Picture Preview" class="profile-picture">
+                <input type="file" id="profilePicture" name="profilePicture" accept="image/*" class="hidden-file-input">
+                <p style="color: var(--accent-color);">Choose pfp?</p>
+            </div>
+            <br>
+            <label for="username">Nickname:</label>
+            <input type="text" id="username" name="username" required>
+            <br><br>
+            <button type="submit" class="btn-primary">Confirm</button>
+        </form>
     </div>
-    <div class="welcome">
-      <img id="userProfilePicture" src="https://th.bing.com/th/id/OIP.hGSCbXlcOjL_9mmzerqAbQHaHa?rs=1&pid=ImgDetMain" alt="Profile Picture"></img>
-      <h3>Hi, <span id="userName">[Name]</span> <span class="wave">&#128075;</span></h3>
-      <hr class="blue-line">
-    </div>
-    <ul>
-      <li><a href="index.html" class="selected">Home</a></li>
-      <li><a href="quizes.html">Quizes</a></li>
-      <li><a href="name.html">Profile</a></li>
-      <li><a href="about.html">About/QnA</a></li>
-    </ul>
-  </nav>
-  
-  <!-- Pomodoro Timer Container -->
-  <div class="timer-container">
-    <!-- filepath: c:\Users\nneka\StudyTheme\index.html -->
-    <div class="sprite-container">
-      <div class="gracie-sprite"></div>
-    </div>
-    <div id="timer-display">25:00</div>
-    <div class="timer-controls">
-      <button id="toggle-timer-btn">Start</button>
-      <button id="reset-btn">Reset</button>
-    </div>
-    <div class="timer-settings">
-      <label for="work-time">Work Time (minutes):</label>
-      <input type="number" id="work-time" value="25">
-      <label for="break-time">Break Time (minutes):</label>
-      <input type="number" id="break-time" value="5">
-      <select>
-        <option>Work</option>
-        <option>Break</option>
-      </select>
-    </div>
-  </div>
-  <script src="script.js"></script>
-  <script src="UserInfo.js"></script>
-  <script>
-    // Dynamically update user data in the navbar
-    const userName = localStorage.getItem("username") || "Guest";
-    const userProfilePicture = localStorage.getItem("profilePicture") || "https://th.bing.com/th/id/OIP.hGSCbXlcOjL_9mmzerqAbQHaHa?rs=1&pid=ImgDetMain";
-
-    document.getElementById("userName").textContent = userName;
-    document.getElementById("userProfilePicture").src = userProfilePicture;
-  </script>
+    <script src="UserInfo.js"></script>
 </body>
 </html>

@@ -2,6 +2,45 @@
     color: var(--primary-color)
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+.form-container {
+    background-color: var(--background-color);
+    box-shadow: 0 0 20px rgba(44, 65, 253, 0.15);
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px auto;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    animation: fadeIn 0.8s ease-out; /* Fade in effect */
+}
+
 .profile-picture {
     width: 150px;
     height: 150px;
@@ -10,6 +49,7 @@
     box-shadow: 0 0 20px rgba(44, 65, 253, 0.15);
     display: block;
     margin: 10px auto;
+    animation: scaleUp 1s ease-out; /* Scale up effect */
 }
 
 .profile-picture-container {

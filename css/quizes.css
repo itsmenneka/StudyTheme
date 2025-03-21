@@ -1,96 +1,108 @@
-  /* Flashcard Deck Styles */
+/* Flashcard Deck Styles */
+@import url(style.css);
+
+:root {
+  color: var(--primary-color);
+}
+
 .flashcard-decks {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin-top: 20px;
-  }
-  
-  .deck {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    width: 250px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  
-  .deck:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-  }
-  
-  .deck h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .deck p {
-    font-size: 16px;
-    margin-bottom: 15px;
-  }
-  
-  .deck button {
-    background-color: #333;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .deck button:hover {
-    background-color: #555;
-  }
-  /* Flashcard Styles */
+  display: flex;
+  justify-content: center; /* Center align decks */
+  flex-wrap: wrap;
+  gap: 20px; /* Add consistent gap */
+  margin-top: 20px;
+  color: var(--primary-color);
+}
+
+.deck {
+  background-color: var(--background-color);
+  border-radius: 6px; /* Smaller border radius */
+  padding: 25px 10px; /* Reduce padding */
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(44, 65, 253, 0.15); /* Subtle shadow */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.deck:hover {
+  transform: translateY(-5px);
+  box-shadow: none; /* Remove shadow on hover */
+}
+
+.deck h2 {
+  font-size: 18px; /* Adjust font size */
+  margin-bottom: 10px;
+}
+
+.deck p {
+  font-size: 14px; /* Adjust font size */
+  margin-bottom: 10px;
+}
+
+.deck button {
+  margin: 10px;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  border: none;
+  padding: 8px 15px; /* Adjust padding */
+  border-radius: 6px; /* Smaller rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.deck button:hover {
+  background-color: var(--secondary-color);
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Flashcard Styles */
 .flashcard-container {
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .flashcard {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    width: 300px;
-    margin: 0 auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .flashcard p {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .flashcard button {
-    background-color: #333;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .flashcard button:hover {
-    background-color: #555;
-  }
-  /* Custom Decks Section */
+  text-align: center;
+  margin-top: 20px;
+}
+
+.flashcard {
+  background-color: var(--background-color);
+  border: 1px solid #ddd;
+  border-radius: 6px; /* Smaller border radius */
+  padding: 15px; /* Reduce padding */
+  width: 300px;
+  margin: 0 auto;
+  box-shadow: 0 2px 4px rgba(44, 65, 253, 0.15); /* Subtle shadow */
+}
+
+.flashcard p {
+  font-size: 16px; /* Adjust font size */
+  margin-bottom: 10px;
+}
+
+.flashcard button {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  border: none;
+  padding: 8px 15px; /* Adjust padding */
+  border-radius: 6px; /* Smaller rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.flashcard button:hover {
+  background-color: var(--secondary-color);
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Custom Decks Section */
 .custom-decks {
   margin-top: 30px;
-  padding: 20px;
+  padding: 15px; /* Reduce padding */
   background-color: #f9f9f9;
   border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 6px; /* Smaller border radius */
+  box-shadow: 0 2px 4px rgba(44, 65, 253, 0.15); /* Subtle shadow */
 }
 
 .custom-decks h2 {
-  font-size: 22px;
+  font-size: 20px; /* Adjust font size */
   margin-bottom: 15px;
   text-align: center;
 }
@@ -104,24 +116,25 @@
 
 .custom-decks input[type="text"] {
   width: 80%;
-  padding: 10px;
+  padding: 8px; /* Adjust padding */
   border: 1px solid #ddd;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 14px; /* Adjust font size */
 }
 
 .custom-decks button {
   background-color: #333;
   color: white;
   border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
+  padding: 8px 15px; /* Adjust padding */
+  border-radius: 6px; /* Smaller rounded corners */
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .custom-decks button:hover {
   background-color: #555;
+  transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 .custom-decks #decks-list {
@@ -141,15 +154,15 @@
 /* Custom Flashcards Section */
 .custom-flashcards {
   margin-top: 30px;
-  padding: 20px;
+  padding: 15px; /* Reduce padding */
   background-color: #f9f9f9;
   border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 6px; /* Smaller border radius */
+  box-shadow: 0 2px 4px rgba(44, 65, 253, 0.15); /* Subtle shadow */
 }
 
 .custom-flashcards h2 {
-  font-size: 22px;
+  font-size: 20px; /* Adjust font size */
   margin-bottom: 15px;
   text-align: center;
 }
@@ -164,24 +177,25 @@
 .custom-flashcards select,
 .custom-flashcards input[type="text"] {
   width: 80%;
-  padding: 10px;
+  padding: 8px; /* Adjust padding */
   border: 1px solid #ddd;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 14px; /* Adjust font size */
 }
 
 .custom-flashcards button {
   background-color: #333;
   color: white;
   border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
+  padding: 8px 15px; /* Adjust padding */
+  border-radius: 6px; /* Smaller rounded corners */
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .custom-flashcards button:hover {
   background-color: #555;
+  transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 .custom-flashcards #custom-flashcards-list {

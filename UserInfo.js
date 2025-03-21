@@ -34,8 +34,8 @@ document
           alert("Signup successful!");
           document.getElementById("signupForm").reset(); // Clear the form
 
-          // Redirect to index.html after signup
-          window.location.href = "index.html";
+          // Redirect to home.html after signup
+          window.location.href = "home.html";
         };
         reader.readAsDataURL(profilePictureFile);
       } else {
